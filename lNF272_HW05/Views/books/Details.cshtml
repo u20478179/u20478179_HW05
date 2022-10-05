@@ -1,0 +1,136 @@
+﻿@model lNF272_HW05.Models.borrowList
+
+
+@{
+    ViewBag.Title = "Details";
+}
+
+@*<h2>@Html.DisplayFor(model => model.Book.name) - Available/Not Available</h2>*@
+<h2>@Model.bookz.name</h2>
+
+<li class="btn-large">@Html.ActionLink("Students", "Index", "students")</li>
+
+<h4># Borrows -</h4>
+
+@*<dt>
+
+        @Html.DisplayNameFor(model => model.Book.name)
+
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Book.name)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Book.pagecount)
+    </dt>
+    <dt>
+        @Html.DisplayFor(model => model.Borrow.broughtDate)
+    </dt>*@
+
+@*<dd>
+        @Html.DisplayFor(model => model.Book.pagecount)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.point)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.point)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.author.name)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.author.name)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.type.name)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.type.name)
+    </dd>*@
+<table class="table">
+    <tr>
+        <th>
+            <p>#</p>
+        </th>
+        <th>
+            <p>Taken Date</p>
+        </th>
+        <th>
+            <p>Brought Date</p>
+        </th>
+        <th>
+            <p>Borrowed by</p>
+        </th>
+    </tr>
+
+    @foreach (var item in Model.ListBorrow)
+    {
+        <tr>
+            <th>
+                @*@Html.DisplayFor(model => model.Borrow.borrowId)*@
+                @item.borrowId
+            </th>
+            <th>
+                @*@Html.DisplayFor(model => model.Borrow.takenDate)*@
+                @item.takenDate
+            </th>
+            <th>
+                @*@Html.DisplayFor(model => model.Borrow.broughtDate)*@
+                @item.broughtDate
+            </th>
+            <th>
+                @*@Html.DisplayFor(model => model.Borrow.student.name)*@
+                @item.student.name
+            </th>
+        </tr>
+    }
+</table>
+
+
+
+@*</dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Borrow.broughtDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Borrow.broughtDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Borrow.book.name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Borrow.book.name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Borrow.student.name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Borrow.student.name)
+            </dd>
+            <dd>
+                <button type="button">Take Out</button>;
+            </dd>
+
+        </dl>
+    </div>*@
+
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.bookz.bookId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

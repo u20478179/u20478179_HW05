@@ -1,0 +1,52 @@
+﻿@model lNF272_HW05.Models.borrow
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>@Html.DisplayFor(model => model.book.name) - Status</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.takenDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.takenDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.broughtDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.broughtDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.book.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.book.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.student.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.student.name)
+        </dd>
+        <dd>
+            <button type="button">Take Out</button>;
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.borrowId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

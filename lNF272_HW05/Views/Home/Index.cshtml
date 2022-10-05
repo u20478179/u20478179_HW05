@@ -1,0 +1,48 @@
+﻿@model List<lNF272_HW05.Models.author>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Database App</h1>
+    <div class="row">
+        <div class="col-md-4">
+            <h2 class="btn btn-lg">@Html.ActionLink("Authors", "Index", "authors") &raquo;</h2>
+        </div>
+        <div class="col-md-4">
+            <h2 class="btn btn-lg">@Html.ActionLink("Books", "Index", "books") &raquo;</h2>
+        </div>
+        <div class="col-md-4">
+            <h2 class="btn btn-lg">@Html.ActionLink("Borrows", "Index", "borrows") &raquo;</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <h2 class="btn btn-lg">@Html.ActionLink("Students", "Index", "students") &raquo;</h2>
+        </div>
+        <div class="col-md-4">
+            <h2 class="btn btn-lg">@Html.ActionLink("Sysdiagrams", "Index", "sysdiagrams") &raquo;</h2>
+        </div>
+        <div class="col-md-4">
+            <h2 class="btn btn-lg">@Html.ActionLink("Types", "Index", "types") &raquo;</h2>
+        </div>
+    </div>
+</div>
+
+
+@*<div>(localdb)\MSSQLLocalDB</div>
+    <div>LAPTOP-VSPDKNGF\SQLEXPRESS</div>
+    <div>Data Source=LAPTOP-VSPDKNGF\SQLEXPRESS;Initial Catalog=Library;Integrated Security=True</div>*@
+@*<div>"SELECT books.bookID, borrows.borrowID FROM books INNER JOIN borrows ON books.bookID = borrows.bookId;"</div>*@
+@*<table>
+        <tr>
+            <th>Name</th>
+        </tr>
+        @foreach (var author in Model)
+        {
+            <tr>
+                <td>@author.name</td>
+            </tr>
+        }
+    </table>*@

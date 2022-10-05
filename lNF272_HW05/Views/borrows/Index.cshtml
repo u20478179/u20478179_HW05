@@ -1,0 +1,64 @@
+﻿@model IEnumerable<lNF272_HW05.Models.borrow>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.takenDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.broughtDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.book.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.student.name)
+        </th>
+        <th>
+            <p>Available</p>
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.takenDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.broughtDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.book.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.student.name)
+            </td>
+            <td>
+                @if (@Html.DisplayFor(modelItem => item.broughtDate) == null)
+                {
+                    <button type="button">@Html.ActionLink("Out", "Details", new { id = item.borrowId })</button>;
+                }
+                else
+                {
+                    <button type="button">@Html.ActionLink("Available", "Details", new { id = item.borrowId })</button>;
+                }
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.borrowId }) |
+                <button type="button">@Html.ActionLink("View Student", "Index", "students")</button>
+            </td>
+        </tr>
+    }
+
+</table>

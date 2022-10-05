@@ -1,0 +1,162 @@
+﻿@model lNF272_HW05.Models.ViewModel
+@*@model IEnumerable<INF272_HW05.Models.book>*@
+@{
+    ViewBag.Title = "Books";
+
+}
+
+
+
+
+<h2>Books</h2>
+<table class="table">
+    <tr>
+        <th>
+            @using (Html.BeginForm("Index", "books", FormMethod.Post))
+            {
+
+                @*@using (Html.BeginForm("testing", "books", FormMethod.Post) {
+                    < input type = "text" name = "myTxt" value = "" ></ input >
+
+                    < button type = "submit" > Submit </ button >
+                    }*@
+                @Html.TextBox("Search")
+                <input type="submit" value="Search" />
+
+                <label for="type">Type</label>
+                <select name="type" id="type">
+                    @foreach (var item in Model.Types)
+                    {
+                        <option value="type">@Html.DisplayFor(modelItem => item.name)</option>
+
+                    }
+                </select>
+
+                <label for="author">Author</label>
+                <select name="author" id="author">
+                    @foreach (var item in Model.Authors)
+                    {
+                        <option value="author">@Html.DisplayFor(modelItem => item.name)</option>
+
+                    }
+                </select>
+
+                <button type="button" class="btn btn-primary">Search</button>
+
+                @Html.ActionLink("Clear", "Index", new { seacrh = "" }, new { @class = "btn btn-primary" })
+                @*<button type="button" class="btn btn-secondary">Clear</button>*@
+
+
+            }
+
+
+
+            @*<p>
+                    Search:
+                    @Html.TextBox("Search")
+                    <input type="submit" value="Search" />
+                </p>*@
+            @*@Html.ActionLink("Search", "Index", new { seacrh ="" })*@
+
+            @*<form action="@Html.ActionLink("Search", "Index", new { search = "Search" })">
+                    <label for="fname">Search</label>
+                    <input type="text" id="fname" name="fname"><br><br>
+                </form>*@
+
+            <!--</th>
+            <th>
+                @using (Html.BeginForm("sa"))
+                {
+                    <label for="type">Type</label>
+                    <select name="type" id="type">
+                        @foreach (var item in Model.Types)
+                        {
+                            <option value="type">@Html.DisplayFor(modelItem => item.name)</option>
+
+                        }
+                    </select>
+                }
+            </th>
+            <th>
+                <label for="author">Author</label>
+                <select name="author" id="author">
+                    @foreach (var item in Model.Authors)
+                    {
+                        <option value="author">@Html.DisplayFor(modelItem => item.name)</option>
+
+                    }
+                </select>
+            </th>
+            <th>
+                <button type="button" class="btn btn-primary">Search</button>
+            </th>
+            <th>
+                @Html.ActionLink("Clear", "Index", new { seacrh = "" }, new { @class = "btn btn-primary" })-->
+            @*<button type="button" class="btn btn-secondary">Clear</button>*@
+            <!--</th>
+            </tr>-->
+</table>
+<table class="table">
+    <tr>
+        <th>
+            @*@Html.DisplayNameFor(model => model.bookId)*@ <p><strong>#</strong></p>
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.name)*@ <p><strong>Name</strong></p>
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.author.name)*@ <p><strong>Author</strong></p>
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.type.name)*@ <p><strong>Type</strong></p>
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.pagecount)*@ <p><strong>Page Count</strong></p>
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.point)*@ <p>Points</p>
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.Status) <p>Status</p>
+            </th>*@
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.ListBooks)
+    {
+        <tr>
+            <th>
+                @Html.DisplayFor(modelItem => item.bookId)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.name)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.author.name)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.type.name)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.pagecount)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.point)
+            </th>
+            @*<th>
+                    @Html.DisplayFor(modelItem => item.status)
+                </th>*@
+            @*@if()
+                {
+
+                }*@
+
+            <td>
+                @Html.ActionLink("View", "Details", new { id = item.bookId })
+
+            </td>
+        </tr>
+    }
+
+</table>

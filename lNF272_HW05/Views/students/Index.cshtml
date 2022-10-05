@@ -1,0 +1,139 @@
+﻿@model IEnumerable<lNF272_HW05.Models.student>
+
+@{
+    ViewBag.Title = "Index";
+    //ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+    //ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+
+}
+
+<h2>Students</h2>
+
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.surname)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.birthdate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.gender)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.@class)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.point)
+                </th>
+                <th></th>
+            </tr>*@
+
+@*@using (Html.BeginForm("Index", "students", FormMethod.Get))
+    {
+        @Html.TextBox("search")
+        <input type="submit" name="submit" value="Search" />
+    }*@
+
+<table class="table">
+    <tr>
+        <th>
+            @using (Html.BeginForm())
+            {
+                <p>
+                    Search:
+                    @Html.TextBox("search")
+                    <input type="submit" value="Search" />
+                </p>
+            }
+        </th>
+        <th>
+            @using (Html.BeginForm("sc"))
+            {
+                @*<label for="type">Type</label>
+                    <select name="type" id="type">
+                        @foreach (var item in Model)
+                        {
+                            <option value=@Html.DisplayFor(modelItem => item.@class)>@Html.DisplayFor(modelItem => item.@class)</option>
+
+                        }
+                    </select>*@
+                <label for="type">Type</label>
+                <select name="type" id="type">
+                    @foreach (var item in Model@*.Types*@)
+{
+<option value=@item.name>@item.name</option>
+}
+                </select>
+
+                <button type="submit" class="btn btn-primary">Search</button>
+            }
+        </th>
+        <th>
+
+        </th>
+        <th>
+            @Html.ActionLink("Clear", "Index", new { seacrh = "" }, new { @class = "btn btn-primary" })
+        </th>
+    </tr>
+</table>
+
+<table class="table">
+    <tr>
+
+        <td>
+            @*@Html.DisplayFor(modelItem => item.studentId)*@<p>#</p>
+        </td>
+        <td>
+            @*@Html.DisplayFor(modelItem => item.name)*@<p>Name</p>
+        </td>
+        <td>
+            @*@Html.DisplayFor(modelItem => item.surname)*@<p>Surname</p>
+        </td>
+        <td>
+            @*@Html.DisplayFor(modelItem => item.@class)*@<p>Class</p>
+        </td>
+        <td>
+            @*@Html.DisplayFor(modelItem => item.point)*@<p>Points</p>
+        </td>
+        <td>
+            <p>Borrow Book</p>
+        </td>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.studentId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.surname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.@class)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.point)
+            </td>
+            <td>
+                @*@Html.ActionLink*@
+                <button type="button" class="btn btn-primary">Borrow Bookk</button>
+            </td>
+            @*<td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.studentId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.studentId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.studentId })
+                </td>*@
+        </tr>
+    }
+</table>
